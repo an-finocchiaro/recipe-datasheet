@@ -1,1 +1,17 @@
 <h4>Cadastrar Novo Ingrediente<h4>
+
+<%= form_with(model: @ingredient) do |f| %>
+  <div>
+    <%= f.label, :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :unit %>
+    <%= f.select :unit, options_for_select(Ingredient.units.keys.map {|k| [I18n.t(k), k]}) %>
+  <div>
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+  <%= f.submit 'Gravar' %>
+<% end %>
